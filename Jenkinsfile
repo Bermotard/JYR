@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('GetPokyConfAndOthers') {
             steps {
-                git branch: 'zeus', url: 'git://git.yoctoproject.org/poky'
+                checkout([$class: 'GitSCM', branches: [[name: '*/zeus']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky']]])
                 echo "CHECKOUT https@github.com:Bermotard/Build_rasp.git -b develop build"
                 checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '2de6b006-67cd-4ded-93a0-3d8d9caf986a', url: 'https://github.com/Bermotard/Build_rasp.git']]])
                 echo "CHECKOUT -b zeus git://git.openembedded.org/meta-openembedded"
