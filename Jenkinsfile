@@ -23,7 +23,7 @@ pipeline {
                 . ./oe-init-build-env build \n
                 cd $WORKSPACE/build \n
                 pwd \n
-                bitbake  core-image-minimal \n 
+                bitbake  core-image-sato \n 
                 bitbake package-index \n"""
             }
         }
