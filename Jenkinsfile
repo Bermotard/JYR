@@ -15,6 +15,8 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/zeus']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'meta-intel-realsense']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/IntelRealSense/meta-intel-realsense.git']]])
                 echo "CHECKOUT-b zeus  git://git.yoctoproject.org/meta-raspberrypi"
                 checkout([$class: 'GitSCM', branches: [[name: '*/zeus']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'meta-raspberrypi']], submoduleCfg: [], userRemoteConfigs: [[url: 'git://git.yoctoproject.org/meta-raspberrypi']]])
+                echo "CHECKOUT-b zeus  git://git.yoctoproject.org/meta-selinux"
+                checkout([$class: 'GitSCM', branches: [[name: '*/zeus']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'meta-selinux']], submoduleCfg: [], userRemoteConfigs: [[url: 'git://git.yoctoproject.org/meta-selinux']]])   
             }
         }
         stage('BuildRaspeberryPi'){
