@@ -21,12 +21,15 @@ pipeline {
         }
         stage('BuildRaspeberryPi'){
             steps {
-                sh """export BUILDDIR=build \n
-                . ./oe-init-build-env build \n
-                cd $WORKSPACE/build \n
-                pwd \n
-                bitbake  core-image-selinux   \n 
-                bitbake package-index \n"""
+                sh """export LC_ALL=en_US.UTF-8 \
+                      export LANG=en_US.UTF-8 \
+                      export LANGUAGE=en_US.UTF-8 \
+                      export BUILDDIR=build \n
+                      . ./oe-init-build-env build \n
+                      cd $WORKSPACE/build \n
+                      pwd \n
+                      bitbake  core-image-selinux   \n 
+                      bitbake package-index \n"""
             }
         }
     }
