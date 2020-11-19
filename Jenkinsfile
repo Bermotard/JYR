@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'zeus', url: 'git://git.yoctoproject.org/poky'
                 echo "CHECKOUT git@github.com:Bermotard/Build_rasp.git -b develop build"
-                checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'build']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:Bermotard/Build_rasp.git']]]
+                checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'build']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Bermotard/Build_rasp.git']]]
                 echo "CHECKOUT -b zeus git://git.openembedded.org/meta-openembedded"
                 checkout([$class: 'GitSCM', branches: [[name: '*/zeus']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'meta-openembedded']], submoduleCfg: [], userRemoteConfigs: [[url: 'git://git.openembedded.org/meta-openembedded']]])
                 echo "CHECKOUT -b zeus git://github.com/96boards/meta-96boards"
